@@ -8,9 +8,11 @@ public record CreateEmployeeDto(
     string DocNumber,
     List<string> Phones,
     string Position,
-    int? ManagerId);
+    decimal Salary,
+    int? ManagerId
+);
 
-// payload para atualizar
+
 public record UpdateEmployeeDto(
     string? FullName,
     string? Email,
@@ -18,4 +20,7 @@ public record UpdateEmployeeDto(
     string? DocNumber,
     List<string>? Phones,
     string? Position,
-    int? ManagerId);
+    decimal? Salary,         
+    int? ManagerId
+);
+
