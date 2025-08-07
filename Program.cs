@@ -2,6 +2,8 @@ using EmployeeManagement.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using FluentValidation.AspNetCore;
 
+
+public partial class Program { 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers().AddFluentValidation();;
@@ -36,3 +38,4 @@ using (var scope = app.Services.CreateScope())
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+} 

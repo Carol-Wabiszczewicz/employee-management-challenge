@@ -1,22 +1,23 @@
-﻿using FluentValidation.TestHelper;
-using EmployeeManagement.Api.Validators;
-using EmployeeManagement.Api.Dtos;
-using Microsoft.EntityFrameworkCore;
+﻿
 using EmployeeManagement.Api.Data;
+using EmployeeManagement.Api.Dtos;
+using EmployeeManagement.Api.Validators;
+using FluentValidation.TestHelper;
+using Microsoft.EntityFrameworkCore;
+
 namespace EmployeeManagement.Api.Tests
 {
     public class CreateEmployeeDtoValidatorTests
     {
         private readonly CreateEmployeeDtoValidator _validator;
-
         public CreateEmployeeDtoValidatorTests()
         {
             var options = new DbContextOptionsBuilder<AppDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestDb")
                 .Options;
 
-            var context = new AppDbContext(options);
-            _validator = new CreateEmployeeDtoValidator(context);
+            var dbContext = new AppDbContext(options);
+            _validator = new CreateEmployeeDtoValidator(dbContext);
         }
 
         [Fact]
