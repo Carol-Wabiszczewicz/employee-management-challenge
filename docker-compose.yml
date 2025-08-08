@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend/EmployeeManagement.Api
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Host=db;Port=5432;Database=employees;Username=postgres;Password=postgres
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend/employee-management
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - app-network
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: employees
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  pgdata:
+
+networks:
+  app-network:
