@@ -87,19 +87,36 @@ namespace EmployeeManagement.Api.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> DeleteEmployee(int id)
         {
             var employee = await _context.Employees.FindAsync(id);
-            if (employee is null) return NotFound();
+            if (employee == null)
+                return NotFound();
 
             _context.Employees.Remove(employee);
             await _context.SaveChangesAsync();
+
             return NoContent();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> CreateEmployee([FromBody] CreateEmployeeDto dto)
         {
+            var userPosition = User.FindFirst("position")?.Value;
+
+            if (userPosition is null)
+                return Unauthorized("Usuário sem cargo definido no token.");
+
+            if (!Enum.TryParse<PositionLevel>(userPosition, true, out var userLevel))
+                return BadRequest("Cargo do usuário inválido.");
+
+            if (!Enum.TryParse<PositionLevel>(dto.Position, true, out var newEmployeeLevel))
+                return BadRequest("Cargo do novo funcionário inválido.");
+
+            if (newEmployeeLevel > userLevel)
+                return Forbid("Você não tem permissão para criar um funcionário com cargo superior ao seu.");
+
             var employee = new Employee
             {
                 FullName = dto.FullName,
@@ -117,6 +134,7 @@ namespace EmployeeManagement.Api.Controllers
 
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employee.Id }, employee);
         }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetEmployeeById(int id)

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "w+4rkD6ZBdQ=",
+  "dgSpecHash": "rK5VVnnsVRw=",
   "success": true,
   "projectFilePath": "C:\\Users\\Carol\\employee-management\\backend\\EmployeeManagement.Api.Tests\\EmployeeManagement.Api.Tests.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carol\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\coverlet.collector\\6.0.2\\coverlet.collector.6.0.2.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\fluentassertions\\8.5.0\\fluentassertions.8.5.0.nupkg.sha512",

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "+2ywZmI3eyc=",
+  "dgSpecHash": "OMrLCb/WgDo=",
   "success": true,
   "projectFilePath": "C:\\Users\\Carol\\employee-management\\backend\\EmployeeManagement.Api\\EmployeeManagement.Api.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Carol\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.1\\fluentvalidation.aspnetcore.11.3.1.nupkg.sha512",
     "C:\\Users\\Carol\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.11.0\\fluentvalidation.dependencyinjectionextensions.11.11.0.nupkg.sha512",
